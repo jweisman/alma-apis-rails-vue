@@ -128,7 +128,8 @@
 
         request.fail(function( jqXHR ) {
           console.log(jqXHR.responseJSON.error);
-          self.messages.success = jqXHR.responseJSON.error;
+          //self.messages.success = jqXHR.responseJSON.error;
+          alert(jqXHR.responseJSON.error);
         });
       },
       retrieveItem: function() {
@@ -139,7 +140,9 @@
           self.messages = {};
         })
         .fail(function( jqXHR ) {
-          console.log(jqXHR.responseJSON.messages);
+          console.log(jqXHR.responseJSON.error);
+          //self.messages.success = jqXHR.responseJSON.error;
+          alert(jqXHR.responseJSON.error);
         });
       }
     }
