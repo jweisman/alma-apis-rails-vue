@@ -1,147 +1,102 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-12" id="app">
-      <h1 style="margin-bottom: 1rem;">Item Chron/Enum</h1>
-      <form>
-        <div class="form-group row">
-          <label class="col-sm-2 col-form-label">Barcode:</label>
-          <div class="col-sm-8">
-            <input type="text" v-model="item.item_data.barcode" class="form-control">
-          </div>
-          <div class="col-sm-2">
-            <button type="button" class="btn btn-secondary" v-on:click="retrieveItem">Retrieve item</button>
-          </div>
-        </div>
-      </form>
-      <template v-if="item.item_data.pid">
-      <div class="card" style="margin-bottom: 20px;">
-        <div class="card-body">
-          <h5 class="card-title">{{ item.bib_data.title }}</h5>
-          <div class="row">
-          <div class="card-text col-6">{{ item.bib_data.author }}</div>
-          <div class="card-text col=6">{{ item.item_data.library.desc }}/{{ item.item_data.location.desc }}</div>
-          </div>
-        </div>
-      </div>
-      <div class="alert alert-success" v-if="messages.success" role="alert">
-        {{ messages.success }}
-      </div>
-      <div class="alert alert-danger" v-if="messages.danger" role="alert">
-        {{ messages.danger }}
-      </div>
-      <div class="alert alert-warning" v-if="messages.warning" role="alert">
-        {{ messages.warning }}
-      </div>
-      <form>
-        <h3>Enumeration</h3>
-        <div class="form-group row">
-          <div class="col">
-            <input type="text" class="form-control" placeholder="Enum a" v-model="item.item_data.enumeration_a">
-          </div>
-          <div class="col">
-            <input type="text" class="form-control" placeholder="Enum b" v-model="item.item_data.enumeration_b">
-          </div>
-        </div>
-        <div class="form-group row">
-          <div class="col">
-            <input type="text" class="form-control" placeholder="Enum c" v-model="item.item_data.enumeration_c">
-          </div>
-          <div class="col">
-            <input type="text" class="form-control" placeholder="Enum d" v-model="item.item_data.enumeration_d">
-          </div>
-        </div>
-        <div class="form-group row">
-          <div class="col">
-            <input type="text" class="form-control" placeholder="Enum e" v-model="item.item_data.enumeration_e">
-          </div>
-          <div class="col">
-            <input type="text" class="form-control" placeholder="Enum f" v-model="item.item_data.enumeration_f">
-          </div>
-        </div>
-        <div class="form-group row">
-          <div class="col">
-            <input type="text" class="form-control" placeholder="Enum g" v-model="item.item_data.enumeration_g">
-          </div>
-          <div class="col">
-            <input type="text" class="form-control" placeholder="Enum h" v-model="item.item_data.enumeration_h">
-          </div>
-        </div>   
-        <h3>Chronology</h3>
-        <div class="form-group row">
-          <div class="col">
-            <input type="text" class="form-control" placeholder="Chron i" v-model="item.item_data.chronology_i">
-          </div>
-          <div class="col">
-            <input type="text" class="form-control" placeholder="Chron j" v-model="item.item_data.chronology_j">
-          </div>
-        </div> 
-        <div class="form-group row">
-          <div class="col">
-            <input type="text" class="form-control" placeholder="Chron k" v-model="item.item_data.chronology_k">
-          </div>
-          <div class="col">
-            <input type="text" class="form-control" placeholder="Chron l" v-model="item.item_data.chronology_l">
-          </div>
-        </div> 
-        <div class="form-group row">
-          <div class="col-sm-6">
-            <input type="text" class="form-control" placeholder="Chron m" v-model="item.item_data.chronology_m">
-          </div>
+<% content_for :head do -%> 
+  <%= javascript_pack_tag 'items' %>
+<% end -%>
 
-        </div>
-        <div class="form-group row">
-          <div class="col">
-            <button type="button" class="btn btn-primary" v-on:click="updateItem">Update Item</button>
-          </div>
-
-        </div>
-
-      </form>
-      </template>
+<%= content_tag :div, id: "app" do -%>
+  <h1 style="margin-bottom: 1rem;">Item Chron/Enum</h1>
+  <form>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Barcode:</label>
+      <div class="col-sm-8">
+        <input type="text" v-model="item.item_data.barcode" class="form-control">
+      </div>
+      <div class="col-sm-2">
+        <button type="button" class="btn btn-secondary" v-on:click="retrieveItem">Retrieve item</button>
+      </div>
+    </div>
+  </form>
+  <template v-if="item.item_data.pid">
+  <div class="card" style="margin-bottom: 20px;">
+    <div class="card-body">
+      <h5 class="card-title">{{ item.bib_data.title }}</h5>
+      <div class="row">
+      <div class="card-text col-6">{{ item.bib_data.author }}</div>
+      <div class="card-text col=6">{{ item.item_data.library.desc }}/{{ item.item_data.location.desc }}</div>
+      </div>
     </div>
   </div>
-</div>
+  <div class="alert alert-success" v-if="messages.success" role="alert">
+    {{ messages.success }}
+  </div>
+  <div class="alert alert-danger" v-if="messages.danger" role="alert">
+    {{ messages.danger }}
+  </div>
+  <div class="alert alert-warning" v-if="messages.warning" role="alert">
+    {{ messages.warning }}
+  </div>
+  <form>
+    <h3>Enumeration</h3>
+    <div class="form-group row">
+      <div class="col">
+        <input type="text" class="form-control" placeholder="Enum a" v-model="item.item_data.enumeration_a">
+      </div>
+      <div class="col">
+        <input type="text" class="form-control" placeholder="Enum b" v-model="item.item_data.enumeration_b">
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col">
+        <input type="text" class="form-control" placeholder="Enum c" v-model="item.item_data.enumeration_c">
+      </div>
+      <div class="col">
+        <input type="text" class="form-control" placeholder="Enum d" v-model="item.item_data.enumeration_d">
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col">
+        <input type="text" class="form-control" placeholder="Enum e" v-model="item.item_data.enumeration_e">
+      </div>
+      <div class="col">
+        <input type="text" class="form-control" placeholder="Enum f" v-model="item.item_data.enumeration_f">
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col">
+        <input type="text" class="form-control" placeholder="Enum g" v-model="item.item_data.enumeration_g">
+      </div>
+      <div class="col">
+        <input type="text" class="form-control" placeholder="Enum h" v-model="item.item_data.enumeration_h">
+      </div>
+    </div>   
+    <h3>Chronology</h3>
+    <div class="form-group row">
+      <div class="col">
+        <input type="text" class="form-control" placeholder="Chron i" v-model="item.item_data.chronology_i">
+      </div>
+      <div class="col">
+        <input type="text" class="form-control" placeholder="Chron j" v-model="item.item_data.chronology_j">
+      </div>
+    </div> 
+    <div class="form-group row">
+      <div class="col">
+        <input type="text" class="form-control" placeholder="Chron k" v-model="item.item_data.chronology_k">
+      </div>
+      <div class="col">
+        <input type="text" class="form-control" placeholder="Chron l" v-model="item.item_data.chronology_l">
+      </div>
+    </div> 
+    <div class="form-group row">
+      <div class="col-sm-6">
+        <input type="text" class="form-control" placeholder="Chron m" v-model="item.item_data.chronology_m">
+      </div>
 
-<script>
-  var app = new Vue({
-    el: '#app',
-    data: { item: { item_data: { barcode:""}}, messages: {}},
-    methods: {
-      updateItem: function() {
-        var self = this;
-        this.messages = {};
-        var token = $('meta[name=csrf-token]').attr('content');
-        var request = $.ajax({
-          dataType: "json",
-          method: "PUT",
-          url: '/items/' + this.item.item_data.pid,
-          data: this.item,
-          beforeSend: function(request) {
-            request.setRequestHeader("X-CSRF-Token", token);
-          }
-        });
+    </div>
+    <div class="form-group row">
+      <div class="col">
+        <button type="button" class="btn btn-primary" v-on:click="updateItem">Update Item</button>
+      </div>
 
-        request.done(function(data) {
-          self.messages.success = "Item updated successfully.";
-          self.item = data;
-        });
-
-        request.fail(function( jqXHR ) {
-          console.log(jqXHR.responseJSON.error);
-          self.messages.success = jqXHR.responseJSON.error;
-        });
-      },
-      retrieveItem: function() {
-        var self = this;
-        $.getJSON( "/items/" + this.item.item_data.barcode)
-        .done(function( data ) {
-          self.item=data;
-          self.messages = {};
-        })
-        .fail(function( jqXHR ) {
-          console.log(jqXHR.responseJSON.messages);
-        });
-      }
-    }
-  });    
-</script>
+    </div>
+  </form>
+  </template> 
+<% end %>

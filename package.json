@@ -1,5 +1,17 @@
 {
   "name": "c4l19",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "@rails/webpacker": "3.5",
+    "coffee-loader": "^0.9.0",
+    "coffeescript": "1.12.7",
+    "vue": "^2.6.6",
+    "vue-loader": "14.2.2",
+    "vue-resource": "^1.5.1",
+    "vue-template-compiler": "^2.6.6",
+    "vue-turbolinks": "^2.0.4"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "2.11.2"
+  }
 }
