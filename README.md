@@ -1,24 +1,5 @@
-# README
+# Alma APIs with Rails and Vue.js
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This demo app shows how you can integrate the [Ex Libris Alma REST APIs](https://developers.exlibrisgroup.com/alma/apis/) with a [SPA (single page application)](https://en.wikipedia.org/wiki/Single-page_application) using [Rails](https://rubyonrails.org) and [Vue.js](https://vuejs.org).
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+It also uses the [`alma_rest_api` gem](https://rubygems.org/gems/alma_rest_api) as a wrapper for the API calls.
