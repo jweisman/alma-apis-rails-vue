@@ -5,9 +5,13 @@ class ItemsController < ApplicationController
   end
 
   def show
-    item = AlmaRestApi.get "/items?item_barcode=#{params[:id]}"
-    respond_to do |format|
-      format.json { render json: item }
+    begin
+      item = AlmaRestApi.get "/items?item_barcode=#{params[:id]}"
+      respond_to do |format|
+        format.json { render json: item }
+      end
+    rescue => e
+      render json: { "error" => e.message }, :status => :bad_request
     end
   end
 
