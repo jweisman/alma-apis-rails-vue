@@ -1,0 +1,14 @@
+{
+  "name": "Alma APIs with Rails and Vue.js",
+  "description": "This demo app shows how you can integrate the Ex Libris Alma REST APIs with a SPA (single page application) using Rails and Vue.js.",
+  "repository": "https://github.com/jweisman/alma-apis-rails-vue",
+  "env": {
+    "ALMA_API_PATH": {
+      "description": "URL for the Alma APIs",
+      "value": "https://api-na.hosted.exlibrisgroup.com/almaws/v1"
+    },
+    "ALMA_API_KEY": {
+      "description": "Your API key. See https://developers.exlibrisgroup.com/alma/apis"
+    }
+  }
+}
