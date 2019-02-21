@@ -10,7 +10,7 @@ Installation Instructions
 -------------------------
 On any machine with [Ruby on Rails](http://rubyonrails.org/) and [Git](http://git-scm.com/) installed, do the following:
 
-1. Clone this repository: `https://github.com/jweisman/alma-apis-rails-vue`
+1. Clone this repository: `git clone https://github.com/jweisman/alma-apis-rails-vue`
 2. `cd alma-apis-rails-vue`
 3. Install dependencies: `bundle install`
 4. Run the application. This application requires an API key. You can provide one in the environment, i.e.:
