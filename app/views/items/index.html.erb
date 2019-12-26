@@ -107,8 +107,7 @@
     el: '#app',
     data: { item: { item_data: { barcode:""}}, messages: {}},
     methods: {
-      updateItem: function() {
-        var self = this;
+      updateItem: function () {
         this.messages = {};
         var token = $('meta[name=csrf-token]').attr('content');
         var request = $.ajax({
@@ -121,9 +120,9 @@
           }
         });
 
-        request.done(function(data) {
-          self.messages.success = "Item updated successfully.";
-          self.item = data;
+        request.done((data) => {
+          this.messages.success = "Item updated successfully.";
+          this.item = data;
         });
 
         request.fail(function( jqXHR ) {
@@ -132,12 +131,11 @@
           alert(jqXHR.responseJSON.error);
         });
       },
-      retrieveItem: function() {
-        var self = this;
+      retrieveItem: function () {
         $.getJSON( "/items/" + this.item.item_data.barcode)
-        .done(function( data ) {
-          self.item=data;
-          self.messages = {};
+        .done(( data ) => {
+          this.item=data;
+          this.messages={};
         })
         .fail(function( jqXHR ) {
           console.log(jqXHR.responseJSON.error);
